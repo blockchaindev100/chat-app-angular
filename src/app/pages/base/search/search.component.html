@@ -1,0 +1,27 @@
+<mat-card class="search">
+  <mat-form-field appearance="outline">
+    <input matInput placeholder="Search" [formControl]="searchInput">
+  </mat-form-field>
+
+  <div class="scrollable">
+    <ng-container *ngFor="let ele of users;index as i">
+      <div class="user-details">
+        <img [src]="api.domain+'/profiles/'+ele.profile" class="img-style">
+        <div class="details">
+          <div class="name">
+            {{ele.firstName+" "+ele.lastName}}
+          </div>
+          <div class="email">
+            {{ele.email}}
+          </div>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+    </ng-container>
+  </div>
+
+  <div *ngIf="!users.length" class="no-users">
+    No Users Found
+  </div>
+
+</mat-card>

@@ -1,0 +1,44 @@
+@import '../../../../styles.scss';
+
+
+::ng-deep {
+    .mat-mdc-card {
+        padding: 5px;
+    }
+
+    .mat-mdc-raised-button .mat-mdc-button-touch-target {
+        background-color: $primary-color !important;
+        font-size: 16px;
+        border-radius: 5px;
+    }
+}
+
+.container {
+    background-color: $primary-color;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+
+    .card-size{
+        width: 30%;
+    }
+
+    .title {
+        text-align: center;
+    }
+
+    .full-width {
+        width: 100%;
+    }
+
+    .tab-container {
+        display: grid;
+        grid-template-columns: 100%;
+        row-gap: 15px;
+        padding: 15px;
+    }
+
+    .font-size{
+        font-size: medium;
+    }
+}

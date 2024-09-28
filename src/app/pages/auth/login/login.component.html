@@ -1,0 +1,70 @@
+<div class="container">
+    <mat-card class="card-size">
+        <mat-card-content>
+            <h2 class="title">SignIn / SignUp</h2>
+            <mat-tab-group>
+                <mat-tab label="SignIn">
+                    <div class="tab-container" [formGroup]="loginGroup">
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Email</mat-label>
+                            <input matInput formControlName="email">
+                            @if (loginGroup.controls["email"].hasError('email') &&
+                            !loginGroup.controls["email"].hasError('required')) {
+                            <mat-error>Please enter a valid email address</mat-error>
+                            }
+                            @if (loginGroup.controls["email"].hasError('required')) {
+                            <mat-error>Email is <strong>required</strong></mat-error>
+                            }
+                        </mat-form-field>
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Password</mat-label>
+                            <input matInput type="password" formControlName="password">
+                            @if (loginGroup.controls["password"].hasError('required')) {
+                            <mat-error>Password is <strong>required</strong></mat-error>
+                            }
+                        </mat-form-field>
+                        <button mat-raised-button color="primary font-size" class="full-width"
+                            (click)="login()">Login</button>
+                    </div>
+                </mat-tab>
+                <mat-tab label="SignUp">
+                    <div class="tab-container" [formGroup]="signupGroup">
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>First Name</mat-label>
+                            <input matInput formControlName="firstName">
+                            @if (signupGroup.controls["firstName"].hasError('required')) {
+                            <mat-error>FirstName is <strong>required</strong></mat-error>
+                            }
+                        </mat-form-field>
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Last Name</mat-label>
+                            <input matInput formControlName="lastName">
+                            @if (signupGroup.controls["lastName"].hasError('required')) {
+                            <mat-error>LastName is <strong>required</strong></mat-error>
+                            }
+                        </mat-form-field>
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Email</mat-label>
+                            <input matInput formControlName="email">
+                            @if (signupGroup.controls["email"].hasError('email') &&
+                            !signupGroup.controls["email"].hasError('required')) {
+                            <mat-error>Please enter a valid email address</mat-error>
+                            }
+                            @if (signupGroup.controls["email"].hasError('required')) {
+                            <mat-error>Email is <strong>required</strong></mat-error>
+                            }
+                        </mat-form-field>
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Password</mat-label>
+                            <input matInput type="password" formControlName="password">
+                            @if (signupGroup.controls["password"].hasError('required')) {
+                            <mat-error>Password is <strong>required</strong></mat-error>
+                            }
+                        </mat-form-field>
+                        <button mat-raised-button color="primary font-size" class="full-width" (click)="signup()">Signup</button>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+        </mat-card-content>
+    </mat-card>
+</div>

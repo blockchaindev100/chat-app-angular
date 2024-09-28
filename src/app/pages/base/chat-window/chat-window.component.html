@@ -1,0 +1,29 @@
+<div class="chat-window">
+    <div class="header">
+        <img [src]="api.domain+'/profiles/'+roomDetails.participants[0].user.profile" class="profile-image" (click)="openProfile()" matTooltip="Profile">
+        <div>
+            {{roomDetails.participants[0].user.firstName+" "+roomDetails.participants[0].user.lastName}}
+        </div>
+    </div>
+    <div class="msg-container" #msgContainer>
+        <ng-container *ngFor="let data of message;index as i">
+            <div [ngClass]="(userId===data.senderId)?'message self':'message others'">
+                <div class="message-color">
+                    <div>{{data.content}}</div>
+                    <div class="time">{{data.createdAt|time}}</div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+    <div class="text-bar">
+        <input type="text" class="input-box" [formControl]="messageInput">
+        <emoji-mart class="emoji-mart" *ngIf="showEmojiPicker" (emojiSelect)="addEmoji($event)" title="Pick your emoji…"
+            [style]="{ position: 'absolute', bottom: '70px', right: '20px' }" (onblur)="showEmojiPicker=!showEmojiPicker"></emoji-mart>
+        <div class="emoji">
+            <button mat-icon-button (click)="showEmojiPicker=!showEmojiPicker">
+                <mat-icon>tag_faces</mat-icon>
+            </button>
+        </div>
+        <button mat-button class="send-button" (click)="sendMessage()">Send</button>
+    </div>
+</div>

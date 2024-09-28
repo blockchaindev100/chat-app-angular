@@ -1,0 +1,46 @@
+::ng-deep {
+    .mat-mdc-card.chat-bar-card {
+        width: 25vw;
+        height: 88vh;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .mat-mdc-card-content:first-child {
+        padding-top: 0 !important; 
+    }
+}
+
+.selectedChat {
+    background-color: #16a798 !important;
+    color: white;
+    border-radius: 5px;
+}
+
+.chat-details {
+    cursor: pointer;
+    width: 100%;
+    padding: 6px 10px;
+    font-size: medium;
+    height: 50px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    position: relative;
+
+
+    .profile-image {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+
+    .chat-time {
+        font-size: 10px;
+        position: absolute;
+        right: 15px;
+        bottom: 5px;
+    }
+}

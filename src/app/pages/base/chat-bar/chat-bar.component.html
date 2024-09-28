@@ -1,0 +1,18 @@
+<mat-card class="chat-bar-card">
+    <mat-card-content>
+        <ng-container *ngFor="let ele of chatRooms">
+            <div [ngClass]="(commonData.currentRoomId==ele.id)?'chat-details selectedChat':'chat-details'"
+                (click)="startChat(ele.id)">
+                <div>
+                    <img [src]="profileDomain+'/profiles/'+ele.participants[0]?.user?.profile" class="profile-image">
+                </div>
+                <div>
+                    {{ele.participants[0]?.user?.firstName + ' ' + ele.participants[0]?.user?.lastName}}
+                </div>
+                <div class="chat-time">
+                    {{ele.messages[0]?.createdAt | time}}
+                </div>
+            </div>
+        </ng-container>
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,110 @@
+@import "../../../../styles.scss";
+
+
+
+.chat-window {
+    height: 85vh;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+    .header {
+        padding: 10px;
+        background-color: #eeeeee;
+        font-size: large;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        height: 50px;
+
+        .profile-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+    }
+
+    .msg-container {
+        padding: 10px;
+        background-color: #ddd5ce;
+        height: calc(100vh - 240px);
+        overflow-y: auto; 
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+
+        display: flex;
+        flex-direction: column;
+
+        .message {
+            width: 100%;
+            margin-bottom: 10px;
+            word-wrap:break-word;
+        }
+
+        .time {
+            font-size: 9px;
+            position: absolute;
+            bottom: 0.5px;
+            right: 4px;
+        }
+
+        .self {
+            display: flex;
+            justify-content: end;
+
+            .message-color {
+                position: relative;
+                border-radius: 5px;
+                width: fit-content;
+                max-width: 75%;
+                min-width: 50px;
+                padding: 10px 10px 15px 10px;
+                background-color: #dcf8c6;
+            }
+        }
+
+        .others {
+            display: flex;
+            justify-content: start;
+
+            .message-color {
+                position: relative;
+                border-radius: 5px;
+                width: fit-content;
+                max-width: 75%;
+                min-width: 50px;
+                padding: 10px 10px 15px 10px;
+                background-color: #ffffff;
+            }
+        }
+    }
+
+    .text-bar {
+        background-color: #f1f1f1;
+        padding: 10px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 50px;
+
+        .input-box {
+            padding: 5px;
+            width: 80%;
+            height: 30px;
+            border: 0.2px solid gray;
+            font-size: medium;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .send-button {
+            width: 100px;
+            background-color: $primary-color;
+            color: white;
+        }
+
+        .emoji {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

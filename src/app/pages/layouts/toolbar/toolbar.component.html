@@ -1,0 +1,21 @@
+<p>
+    <mat-toolbar>
+        <div class="title">
+            <button mat-icon-button>
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span>Chatify</span>
+        </div>
+
+        <div class="profile-container">
+            <button mat-icon-button (click)="search()" matTooltip="Search">
+                <mat-icon>search</mat-icon>
+            </button>
+            <img [src]="api.domain+'/profiles/'+userDetails?.profile" class="profile" [matMenuTriggerFor]="menu">
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="openProfile()"> <mat-icon>person</mat-icon>Profile</button>
+                <button mat-menu-item (click)="logOut()"> <mat-icon>exit_to_app</mat-icon>Logout</button>
+            </mat-menu>
+        </div>
+    </mat-toolbar>
+</p>
