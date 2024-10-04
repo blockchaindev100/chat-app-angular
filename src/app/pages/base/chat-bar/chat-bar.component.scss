@@ -1,3 +1,5 @@
+@import "../../../../styles.scss";
+
 ::ng-deep {
     .mat-mdc-card.chat-bar-card {
         width: 25vw;
@@ -10,12 +12,26 @@
     .mat-mdc-card-content:first-child {
         padding-top: 0 !important; 
     }
+
+    .mat-mdc-card-content{
+        height: 100%;
+    }
 }
 
 .selectedChat {
     background-color: #16a798 !important;
     color: white;
     border-radius: 5px;
+}
+
+.no-chat{
+    height: 100%;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    font-size: large;
+    color: $primary-color;
+    cursor: pointer;
 }
 
 .chat-details {
@@ -42,5 +58,22 @@
         position: absolute;
         right: 15px;
         bottom: 5px;
+    }
+
+    .batch{
+        position: absolute;
+        font-size: 10px;
+        font-weight: bold   ;
+        right: 15px;
+        top: 10px;
+        width: 12px;
+        height: 12px;
+        padding: 3px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #16a798;
+        border-radius: 50%;
+        color: white;
     }
 }

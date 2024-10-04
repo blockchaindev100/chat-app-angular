@@ -14,7 +14,7 @@ import { UserdetailsComponent } from '../userdetails/userdetails.component';
   templateUrl: './chat-window.component.html',
   styleUrls: ['./chat-window.component.scss']
 })
-export class ChatWindowComponent implements OnInit, AfterViewChecked {
+export class ChatWindowComponent implements OnInit {
   roomId: string = '';
   roomDetails: room = {
     id: '',
@@ -59,10 +59,6 @@ export class ChatWindowComponent implements OnInit, AfterViewChecked {
     });
   }
 
-  ngAfterViewChecked() {
-    this.scrollToBottom();
-  }
-
   fetchRoomDetails(): void {
     this.api.getRoomDetails(this.roomId).subscribe((val) => {
       this.roomDetails = val.data;
@@ -87,8 +83,8 @@ export class ChatWindowComponent implements OnInit, AfterViewChecked {
   }
 
   addEmoji(event: any) {
-    if (event.emoji.native !== null && event.emoji.native !== "null")
-      this.messageInput.setValue((this.messageInput.value) ? this.messageInput.value : "" + event.emoji.native);
+    let val = (this.messageInput.value.length) ? this.messageInput.value : "";
+    this.messageInput.setValue(val + event.emoji.native);
   }
 
   sendMessage(): void {
@@ -101,7 +97,10 @@ export class ChatWindowComponent implements OnInit, AfterViewChecked {
   scrollToBottom(): void {
     try {
       if (this.msgContainer) {
-        this.msgContainer.nativeElement.scrollTop = this.msgContainer.nativeElement.scrollHeight;
+        setTimeout(()=>{
+          this.msgContainer.nativeElement.scrollTop = this.msgContainer.nativeElement.scrollHeight;
+          console.log("scrolltop",this.msgContainer.nativeElement.scrollTop);
+        },0)  
       }
     } catch (err) {
       console.error('Scroll error:', err);

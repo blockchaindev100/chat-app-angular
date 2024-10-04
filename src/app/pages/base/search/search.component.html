@@ -5,7 +5,7 @@
 
   <div class="scrollable">
     <ng-container *ngFor="let ele of users;index as i">
-      <div class="user-details">
+      <div class="user-details" (click)="openChat(ele.id)">
         <img [src]="api.domain+'/profiles/'+ele.profile" class="img-style">
         <div class="details">
           <div class="name">

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { CommonDataService } from '../../serivce/common-data.service';
 
 @Component({
   selector: 'app-base',
@@ -6,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './base.component.scss'
 })
 export class BaseComponent {
+  constructor(
+    public common:CommonDataService
+  ) { }
 
 }

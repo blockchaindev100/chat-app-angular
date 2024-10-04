@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../../../serivce/api.service';
-import { user } from '../../../interface/chat';
+import { room, user } from '../../../interface/chat';
 import { FormControl } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, of, switchMap } from 'rxjs';
+import { CommonDataService } from '../../../serivce/common-data.service';
+import { Router } from '@angular/router';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-search',
@@ -15,7 +18,10 @@ export class SearchComponent {
   searchInput: FormControl = new FormControl("");
 
   constructor(
-    public api: ApiService
+    public api: ApiService,
+    public common: CommonDataService,
+    private router: Router,
+    private dialogRef: MatDialogRef<SearchComponent>
   ) { }
 
   ngOnInit() {
@@ -30,7 +36,15 @@ export class SearchComponent {
       })
     ).subscribe(val => {
       this.users = (val && val.data) ? val.data : [];
-      console.log("users", this.users);
+    })
+  }
+
+  openChat(userid: string) {
+    this.api.getOrCreateRoom(userid).subscribe((val: room) => {
+      this.common.currentRoomId = val.id;
+      this.router.navigate(['base/chat', val.id]);
+      this.common.newChatRoomNotify.next("");
+      this.dialogRef.close();
     })
   }
 }

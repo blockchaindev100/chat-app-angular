@@ -27,6 +27,10 @@ export class ApiService {
     return this.http.get(`${this.domain}/chat/room`);
   }
 
+  getOrCreateRoom(userid: string): Observable<any> {
+    return this.http.post(`${this.domain}/chat/room`, { userid });
+  }
+
   getMessageByRoomId(roomId: string): Observable<any> {
     return this.http.get(`${this.domain}/chat/room/${roomId}/message`)
   }

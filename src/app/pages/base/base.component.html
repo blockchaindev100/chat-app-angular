@@ -3,5 +3,8 @@
     <app-chat-bar></app-chat-bar>
     <div>
         <router-outlet></router-outlet>
+        <div *ngIf="!common.currentRoomId" class="no-chat">
+            <p class="welcome-message">Welcome to Chatify! Select a chat to start messaging.</p>
+        </div>
     </div>
 </div>

@@ -1,4 +1,18 @@
-.chat-container{
+@import "../../../styles.scss";
+
+.chat-container {
     display: grid;
     grid-template-columns: 29% 70%;
+}
+
+.no-chat {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.welcome-message {
+    font-size: 1.5rem;
+    color: #757575;
 }
